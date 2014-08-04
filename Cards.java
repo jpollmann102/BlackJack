@@ -54,8 +54,8 @@ public class Cards {
 			}
 		}
 		for(int suit = 0; suit < 4; suit++){
-			for(int face = 0; face < 4; face++){
-				cards.add(new Cards(11, faces[face], suits[suit]));
+			for(int face = 0; face < 3; face++){
+				cards.add(new Cards(10, faces[face], suits[suit]));
 			}
 		}
 	}
@@ -67,10 +67,15 @@ public class Cards {
 				deck.push(new Cards(value, suits[suit]));
 			}
 		}
+		
 		for(int suit = 0; suit < 4; suit++){
-			for(int face = 0; face < 4; face++){
-				deck.push(new Cards(11, faces[face], suits[suit]));
+			for(int face = 0; face <= 2; face++){
+				deck.push(new Cards(10, faces[face], suits[suit]));
 			}
+		}
+		
+		for(int suit = 0; suit < 4; suit++){
+			deck.push(new Cards(11, "Ace", suits[suit]));
 		}
 	}
 	
@@ -106,9 +111,30 @@ public class Cards {
 		for(int index = 0; index < deck.size(); index++){
 			if(deck.get(index).getValue() == 11){
 				System.out.println(deck.get(index).getFace() + " of " + deck.get(index).getSuit());
+			} else if(deck.get(index).getValue() == 10 && !(deck.get(index).getFace() == null)){
+				System.out.println(deck.get(index).getFace() + " of " + deck.get(index).getSuit());
 			} else{
-			System.out.println(deck.get(index).getValue() + " of " + deck.get(index).getSuit());
+				System.out.println(deck.get(index).getValue() + " of " + deck.get(index).getSuit());
 			}
+		}
+	}
+	
+	public void printFirstHand(ArrayList<Cards> hand){
+		if(hand.get(0).getValue() >= 10 && hand.get(1).getValue() >= 10 && hand.get(0).getFace() != null && hand.get(1).getFace() != null){
+			System.out.println(hand.get(0).getFace() + " of " + hand.get(0).getSuit() + " and a " + hand.get(1).getFace() + " of " + hand.get(1).getSuit());
+		}else if(hand.get(0).getValue() == 10 && hand.get(1).getValue() == 10 && hand.get(0).getFace() == null && hand.get(1).getFace() == null){
+			System.out.println(hand.get(0).getValue() + " of " + hand.get(0).getSuit() + " and a " + hand.get(1).getValue() + " of " + hand.get(1).getSuit());
+		}else if(hand.get(0).getValue() == 10 && hand.get(1).getValue() >= 10 && hand.get(0).getFace() == null){
+			System.out.println(hand.get(0).getValue() + " of " + hand.get(0).getSuit() + " and a " + hand.get(1).getFace() + " of " + hand.get(1).getSuit());
+		}else if(hand.get(0).getValue() >= 10 && hand.get(1).getValue() == 10 && hand.get(1).getFace() == null){
+			System.out.println(hand.get(0).getFace() + " of " + hand.get(0).getSuit() + " and a " + hand.get(1).getValue() + " of " + hand.get(1).getSuit());
+		}else if(hand.get(0).getValue() >=10 && hand.get(1).getFace() == null){
+			System.out.println(hand.get(0).getFace() + " of " + hand.get(0).getSuit() + " and a " + hand.get(1).getValue() + " of " + hand.get(1).getSuit());
+		}else if(hand.get(0).getFace() == null && hand.get(1).getValue() >= 10){
+			System.out.println(hand.get(0).getValue() + " of " + hand.get(0).getSuit() + " and a " + hand.get(1).getFace() + " of " + hand.get(1).getSuit());
+		}
+		else{
+			System.out.println(hand.get(0).getValue() + " of " + hand.get(0).getSuit() + " and a " + hand.get(1).getValue() + " of " + hand.get(1).getSuit());
 		}
 	}
 }
