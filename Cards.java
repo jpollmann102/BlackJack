@@ -121,32 +121,7 @@ public class Cards {
 	
 	// prints the first hand that is drawn
 	public void printFirstHand(ArrayList<Cards> hand){
-		if(hand.get(0).getValue() >= 10 && hand.get(1).getValue() >= 10 && hand.get(0).getFace() != null && hand.get(1).getFace() != null){
-			System.out.println(hand.get(0).getFace() + " of " + hand.get(0).getSuit() + " and a " + hand.get(1).getFace() + " of " + hand.get(1).getSuit());
-		}else if(hand.get(0).getValue() == 10 && hand.get(1).getValue() == 10 && hand.get(0).getFace() == null && hand.get(1).getFace() == null){
-			System.out.println(hand.get(0).getValue() + " of " + hand.get(0).getSuit() + " and a " + hand.get(1).getValue() + " of " + hand.get(1).getSuit());
-		}else if(hand.get(0).getValue() == 10 && hand.get(1).getValue() >= 10 && hand.get(0).getFace() == null){
-			System.out.println(hand.get(0).getValue() + " of " + hand.get(0).getSuit() + " and a " + hand.get(1).getFace() + " of " + hand.get(1).getSuit());
-		}else if(hand.get(0).getValue() >= 10 && hand.get(1).getValue() == 10 && hand.get(1).getFace() == null){
-			System.out.println(hand.get(0).getFace() + " of " + hand.get(0).getSuit() + " and a " + hand.get(1).getValue() + " of " + hand.get(1).getSuit());
-		}else if(hand.get(0).getValue() >=10 && hand.get(1).getFace() == null){
-			System.out.println(hand.get(0).getFace() + " of " + hand.get(0).getSuit() + " and a " + hand.get(1).getValue() + " of " + hand.get(1).getSuit());
-		}else if(hand.get(0).getFace() == null && hand.get(1).getValue() >= 10 && hand.get(1).getFace() == null){
-			System.out.println(hand.get(0).getValue() + " of " + hand.get(0).getSuit() + " and a " + hand.get(1).getValue() + " of " + hand.get(1).getSuit());
-		}else if(hand.get(1).getValue() == 10 && hand.get(1).getFace() == null && hand.get(0).getFace() == null){
-			System.out.println(hand.get(0).getValue() + " of " + hand.get(0).getSuit() + " and a " + hand.get(1).getValue() + " of " + hand.get(1).getSuit());
-		}else if(hand.get(0).getValue() == 10 && hand.get(0).getFace() == null && hand.get(1).getFace() == null){
-			System.out.println(hand.get(0).getValue() + " of " + hand.get(0).getSuit() + " and a " + hand.get(1).getValue() + " of " + hand.get(1).getSuit());
-		}else if(hand.get(1).getFace() == null && hand.get(0).getValue() > 10){
-			System.out.println(hand.get(0).getValue() + " of " + hand.get(0).getSuit() + " and a " + hand.get(1).getFace() + " of " + hand.get(1).getSuit());
-		}else if(hand.get(0).getFace() == null && hand.get(1).getFace() == null && hand.get(0).getValue() == 10){
-			System.out.println(hand.get(0).getValue() + " of " + hand.get(0).getSuit() + " and a " + hand.get(1).getValue() + " of " + hand.get(1).getSuit());
-		}else if(hand.get(0).getFace() == null && hand.get(1).getValue() == 11){
-			System.out.println(hand.get(0).getValue() + " of " + hand.get(0).getSuit() + " and a " + hand.get(1).getFace() + " of " + hand.get(1).getSuit());
-		}
-		else{
-			System.out.println(hand.get(0).getValue() + " of " + hand.get(0).getSuit() + " and a " + hand.get(1).getValue() + " of " + hand.get(1).getSuit());
-		}
+		System.out.println(((hand.get(0).getValue() > 1 && hand.get(0).getValue() < 11) ? hand.get(0).getValue() :hand.get(0).getFace() ) + " of " + hand.get(0).getSuit() + " and a " + ((hand.get(1).getValue() > 1 && hand.get(1).getValue() < 11) ? hand.get(1).getValue() :hand.get(1).getFace() ) + " of " + hand.get(1).getSuit());
 	}
 	
 	// prints each card after the first hand
