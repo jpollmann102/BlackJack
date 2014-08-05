@@ -141,7 +141,10 @@ public class Cards {
 			System.out.println(hand.get(0).getValue() + " of " + hand.get(0).getSuit() + " and a " + hand.get(1).getFace() + " of " + hand.get(1).getSuit());
 		}else if(hand.get(0).getFace() == null && hand.get(1).getFace() == null && hand.get(0).getValue() == 10){
 			System.out.println(hand.get(0).getValue() + " of " + hand.get(0).getSuit() + " and a " + hand.get(1).getValue() + " of " + hand.get(1).getSuit());
-		}else{
+		}else if(hand.get(0).getFace() == null && hand.get(1).getValue() == 11){
+			System.out.println(hand.get(0).getValue() + " of " + hand.get(0).getSuit() + " and a " + hand.get(1).getFace() + " of " + hand.get(1).getSuit());
+		}
+		else{
 			System.out.println(hand.get(0).getValue() + " of " + hand.get(0).getSuit() + " and a " + hand.get(1).getValue() + " of " + hand.get(1).getSuit());
 		}
 	}

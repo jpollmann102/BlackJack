@@ -56,6 +56,7 @@ public class Game {
 		if(playerTotal == 21){
 			System.out.println();
 			System.out.println("21!");
+			playing = false;
 		}else{
 			System.out.println();
 			System.out.println("Your total is " + playerTotal);
