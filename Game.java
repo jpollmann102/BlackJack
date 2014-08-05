@@ -57,6 +57,7 @@ public class Game {
 			System.out.println();
 			System.out.println("21!");
 			playing = false;
+			dealer = false;
 		}else{
 			System.out.println();
 			System.out.println("Your total is " + playerTotal);
@@ -74,23 +75,26 @@ public class Game {
 				hand.add(c.drawCard(deck));
 				playerTotal += hand.get(index).getValue();
 				c.printCard(hand, index);
-				c.printTotal(playerTotal);
 			}else{
 				playing = false;
 			}
-			if(playerTotal > 21 && hand.contains(c.getValue() == 11)){
+			if(playerTotal > 21 && hand.get(index).getValue() == 11){
 				playerTotal -= 9;
+				c.printTotal(playerTotal);
 			}else if(playerTotal == 21){
+				c.printTotal(playerTotal);
 				System.out.println("21!");
 				playing = false;
 				dealer = false;
 			}else if(playerTotal > 21){
+				c.printTotal(playerTotal);
 				System.out.println("Bust! Better luck next time");
 				playing = false;
 				dealer = false;
 			}
 			else{
 				index += 1;
+				c.printTotal(playerTotal);
 			}
 		}
 		
